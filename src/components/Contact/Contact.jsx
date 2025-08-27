@@ -7,29 +7,29 @@ import location_icon from "../../assets/location-icon.png";
 import white_arrow from "../../assets/white-arrow.png";
 
 const Contact = () => {
-    const [result, setResult] = React.useState("");
-    const onSubmit = async (event) => {
-        event.preventDefault();
-        setResult("Sending....");
-        const formData = new FormData(event.target);
-    
-        formData.append("access_key", "92ebe353-c79c-42cd-8a43-0db001eb7c2c");
-    
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData
-        });
-    
-        const data = await response.json();
-    
-        if (data.success) {
-          setResult("Form Submitted Successfully");
-          event.target.reset();
-        } else {
-          console.log("Error", data);
-          setResult(data.message);
-        }
-      };
+  const [result, setResult] = React.useState("");
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "92ebe353-c79c-42cd-8a43-0db001eb7c2c");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
   return (
     <div className="contact">
       <div className="contact-col">
@@ -45,15 +45,18 @@ const Contact = () => {
         <ul>
           <li>
             {" "}
-            <img src={mail_icon} alt="" /> contact@clementodok3@gmail.com
+            <img src={mail_icon} alt="" /> 
+            contact@clementodok3@gmail.com
           </li>
           <li>
             {" "}
-            <img src={phone_icon} alt="" /> +254748615267
+            <img src={phone_icon} alt="" />
+            +254748615267
           </li>
           <li>
             {" "}
-            <img src={location_icon} alt="" /> Langata,Nairobi
+            <img src={location_icon} alt="" /> 
+            Langata,Nairobi
           </li>
         </ul>
       </div>
